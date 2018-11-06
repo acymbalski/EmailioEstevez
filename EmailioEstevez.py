@@ -17,7 +17,7 @@ class Emailio():
         if self.load_config(cfg_filename):
             smtp_status = self.start_smtp()
         else:
-            print("No configuration file provided.")
+            print("No email configuration file provided.")
         
     def load_config(self, filename):
         try:
@@ -31,6 +31,9 @@ class Emailio():
     
     def add_address(self, new_address):
         self.to_addresses.append(new_address)
+    
+    def clear_addresses(self):
+        self.to_addresses = []
     
     def start_smtp(self):
         try:
